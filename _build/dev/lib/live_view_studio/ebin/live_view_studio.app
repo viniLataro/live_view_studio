@@ -15,6 +15,7 @@
           'Elixir.LiveViewStudioWeb.ErrorView',
           'Elixir.LiveViewStudioWeb.Gettext',
           'Elixir.LiveViewStudioWeb.LayoutView',
+          'Elixir.LiveViewStudioWeb.LightLive',
           'Elixir.LiveViewStudioWeb.PageLive',
           'Elixir.LiveViewStudioWeb.Router',
           'Elixir.LiveViewStudioWeb.Router.Helpers',
