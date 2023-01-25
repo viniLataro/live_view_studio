@@ -25,10 +25,10 @@ defmodule LiveViewStudioWeb.SearchLive do
               autofocus autocomplete="off"
               <%= if @loading, do: "readonly" %> />
 
-        <button type="submit">
-          <img src="images/search.svg" alt="">
-        </button>
-      </form>
+      <button type="submit">
+        <img src="images/search.svg" alt="">
+      </button>
+    </form>
 
       <%= if @loading do %>
         <div class="loader">
@@ -92,7 +92,7 @@ defmodule LiveViewStudioWeb.SearchLive do
           |> put_flash(:info, "No stores matching \"#{zip}\"")
           |> assign(stores: [], loading: false)
 
-      {:noreply, socket}
+        {:noreply, socket}
 
       stores ->
         socket = assign(socket, stores: stores, loading: false)
