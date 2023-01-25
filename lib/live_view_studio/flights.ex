@@ -6,6 +6,7 @@ defmodule LiveViewStudio.Flights do
   end
 
   def search_by_airport(airport) do
+    :timer.sleep(2000)
     list_flights()
     |> Enum.filter(&(&1.origin == airport || &1.destination == airport))
   end
