@@ -55,6 +55,8 @@ defmodule LiveViewStudio.Servers do
     |> Repo.insert()
   end
 
+  def get_server_by_name(name), do: Repo.get_by(Server, name: name)
+
   @doc """
   Updates a server.
 
