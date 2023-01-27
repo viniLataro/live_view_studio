@@ -7,14 +7,14 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
   def mount(_params, _session, socket) do
     socket =
       assign(socket,
-       zip: "",
-       city: "",
-       stores: [],
-       matches: [],
-       loading: false
+        zip: "",
+        city: "",
+        stores: [],
+        matches: [],
+        loading: false
       )
 
-    {:ok, socket}
+    {:ok, socket, temporary_assigns: [stores: []]}
   end
 
   def render(assigns) do
@@ -124,6 +124,7 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
       assign(socket,
         matches: Cities.suggest(prefix)
       )
+
     {:noreply, socket}
   end
 
@@ -158,5 +159,4 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
         {:noreply, socket}
     end
   end
-
 end

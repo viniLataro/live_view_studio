@@ -6,12 +6,12 @@ defmodule LiveViewStudioWeb.SearchLive do
   def mount(_params, _session, socket) do
     socket =
       assign(socket,
-       zip: "",
-       stores: [],
-       loading: false
+        zip: "",
+        stores: [],
+        loading: false
       )
 
-    {:ok, socket}
+    {:ok, socket, temporary_assigns: [stores: []]}
   end
 
   def render(assigns) do
@@ -99,5 +99,4 @@ defmodule LiveViewStudioWeb.SearchLive do
         {:noreply, socket}
     end
   end
-
 end
