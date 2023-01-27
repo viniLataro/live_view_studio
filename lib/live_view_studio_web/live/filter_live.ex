@@ -4,13 +4,7 @@ defmodule LiveViewStudioWeb.FilterLive do
   alias LiveViewStudio.Boats
 
   def mount(_params, _session, socket) do
-    socket =
-      assign(socket,
-        boats: Boats.list_boats(),
-        type: "",
-        prices: []
-      )
-
+    socket = assign_defaults(socket)
     {:ok, socket, temporary_assigns: [boats: []]}
   end
 
@@ -29,6 +23,7 @@ defmodule LiveViewStudioWeb.FilterLive do
             <%= for price <- ["$", "$$", "$$$"] do %>
               <%= price_checkbox(price: price, checked: price in @prices) %>
             <% end %>
+            <a href="#" phx-click="clear">Clear All</a>
           </div>
         </div>
 
@@ -65,6 +60,11 @@ defmodule LiveViewStudioWeb.FilterLive do
     {:noreply, socket}
   end
 
+  def handle_event("clear", _params, socket) do
+    socket = assign_defaults(socket)
+    {:noreply, socket}
+  end
+
   defp price_checkbox(assigns) do
     assigns = Enum.into(assigns, %{})
 
@@ -83,5 +83,13 @@ defmodule LiveViewStudioWeb.FilterLive do
       Sporting: "sporting",
       Sailing: "sailing"
     ]
+  end
+
+  defp assign_defaults(socket) do
+    assign(socket,
+      boats: Boats.list_boats(),
+      type: "",
+      prices: []
+    )
   end
 end
