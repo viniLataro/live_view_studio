@@ -27,6 +27,7 @@ defmodule LiveViewStudioWeb.Router do
     live("/flights", FlightsLive)
     live("/autocomplete", AutocompleteLive)
     live("/filter", FilterLive)
+    live("/gitrepos", GitReposLive)
     live("/servers", ServersLive)
     live("/paginate", PaginateLive)
     live("/sort", SortLive)

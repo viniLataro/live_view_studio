@@ -15,7 +15,6 @@ defmodule LiveViewStudioWeb.SandboxLive do
     <div id="sandbox">
       <%= live_component @socket, SandboxCalculatorComponent,
                          id: 1 %>
-
       <%= if @weight do %>
         <%= live_component @socket, QuoteComponent,
                           material: "sand",

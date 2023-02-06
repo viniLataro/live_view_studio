@@ -30,6 +30,10 @@
           to: Routes.live_path(@socket, LiveViewStudioWeb.FilterLive) %>
     </li>
     <li>
+      <%= live_redirect "Git Repos",
+          to: Routes.live_path(@socket, LiveViewStudioWeb.GitReposLive) %>
+    </li>
+    <li>
       <%= live_redirect "Servers",
           to: Routes.live_path(@socket, LiveViewStudioWeb.ServersLive) %>
     </li>
