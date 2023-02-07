@@ -56,7 +56,6 @@ defmodule LiveViewStudio.Volunteers do
 
   """
   def create_volunteer(attrs \\ %{}) do
-    {:ok, volunteer} =
       %Volunteer{}
       |> Volunteer.changeset(attrs)
       |> Repo.insert()
