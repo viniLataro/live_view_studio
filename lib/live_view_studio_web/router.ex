@@ -30,6 +30,7 @@ defmodule LiveViewStudioWeb.Router do
     live("/gitrepos", GitReposLive)
     live("/servers", ServersLive)
     live("/paginate", PaginateLive)
+    live("/vehicles", VehiclesLive)
     live("/sort", SortLive)
     live("/volunteers", VolunteersLive)
     live("/infinite-scroll", InfiniteScrollLive)
