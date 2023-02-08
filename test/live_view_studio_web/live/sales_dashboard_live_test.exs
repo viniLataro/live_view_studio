@@ -76,5 +76,4 @@ defmodule LiveViewStudioWeb.SalesDashboardLiveTest do
     |> Floki.find(selector)
     |> Floki.text()
   end
-
 end
