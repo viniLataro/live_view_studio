@@ -19,7 +19,7 @@ defmodule LiveViewStudioWeb.SalesDashboardLive do
     <div id="dashboard">
       <div class="stats">
         <div class="stat">
-          <span class="value">
+          <span id="new-orders" class="value">
             <%= @new_orders %>
           </span>
           <span class="name">
@@ -27,7 +27,7 @@ defmodule LiveViewStudioWeb.SalesDashboardLive do
           </span>
         </div>
         <div class="stat">
-          <span class="value">
+          <span id="sales-amount" class="value">
             $<%= @sales_amount %>
           </span>
           <span class="name">
@@ -35,7 +35,7 @@ defmodule LiveViewStudioWeb.SalesDashboardLive do
           </span>
         </div>
         <div class="stat">
-          <span class="value">
+          <span id="satisfaction" class="value">
             <%= @satisfaction %>%
           </span>
           <span class="name">
