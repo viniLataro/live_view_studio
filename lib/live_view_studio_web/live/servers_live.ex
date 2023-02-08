@@ -51,7 +51,7 @@ defmodule LiveViewStudioWeb.ServersLive do
           <% end %>
         </nav>
       </div>
-      <div class="main">
+      <div class="main" id="selected-server">
         <div class="wrapper">
           <div class="card">
             <div class="header">
