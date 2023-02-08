@@ -56,10 +56,10 @@ defmodule LiveViewStudio.Volunteers do
 
   """
   def create_volunteer(attrs \\ %{}) do
-      %Volunteer{}
-      |> Volunteer.changeset(attrs)
-      |> Repo.insert()
-      |> broadcast(:volunteet_created)
+    %Volunteer{}
+    |> Volunteer.changeset(attrs)
+    |> Repo.insert()
+    |> broadcast(:volunteer_created)
   end
 
   def update_volunteer(%Volunteer{} = volunteer, attrs) do

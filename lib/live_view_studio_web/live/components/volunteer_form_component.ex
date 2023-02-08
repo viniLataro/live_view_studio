@@ -13,9 +13,10 @@ defmodule LiveViewStudioWeb.VolunteerFormComponent do
   def render(assigns) do
     ~L"""
     <%= f = form_for @changeset, "#",
-    phx_submit: "save",
-    phx_change: "validate",
-    phx_target: @myself %>
+          id: "create-volunteer",
+          phx_submit: "save",
+          phx_change: "validate",
+          phx_target: @myself %>
 
     <div class="field">
     <%= text_input f, :name,
@@ -68,5 +69,4 @@ defmodule LiveViewStudioWeb.VolunteerFormComponent do
 
     {:noreply, socket}
   end
-
 end
