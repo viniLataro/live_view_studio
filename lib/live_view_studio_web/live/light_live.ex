@@ -1,19 +1,21 @@
 defmodule LiveViewStudioWeb.LightLive do
   use LiveViewStudioWeb, :live_view
 
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
+
     socket =
       assign(socket,
         brightness: 10,
         temp: 3000
       )
 
-    {:ok, socket}
+    {:ok, assign_current_user(socket, session)}
   end
 
   def render(assigns) do
     ~L"""
     <h1>Front Porch Light</h1>
+    <h1>User: <%= @current_user.id %></h1>
     <div id="light">
       <div class="meter">
         <span style=" background-color: <%= temp_color(@temp) %>;
