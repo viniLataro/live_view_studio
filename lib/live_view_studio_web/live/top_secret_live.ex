@@ -12,7 +12,7 @@ defmodule LiveViewStudioWeb.TopSecretLive do
       <img src="images/spy.svg">
       <div class="mission">
         <h2>Your Mission</h2>
-        <h3>00<%= @current_user.id %></h3>
+        <h3><%= pad_id(@current_user) %></h3>
         <p>
           (should you choose to accept it)
         </p>
@@ -22,5 +22,11 @@ defmodule LiveViewStudioWeb.TopSecretLive do
       </div>
     </div>
     """
+  end
+
+  defp pad_id(user) do
+    user.id
+    |> Integer.to_string
+    |> String.pad_leading(3, "0")
   end
 end
