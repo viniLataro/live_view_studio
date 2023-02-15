@@ -957,6 +957,94 @@ ul.examples {
   }
 }
 
+/* Auth */
+
+.auth {
+  @apply px-6 mt-8 mx-auto w-full max-w-md;
+
+  h3 {
+    @apply mt-6 mb-2 text-xl font-bold text-cool-gray-900;
+  }
+}
+
+form[action="/users/log_in"],
+form[action="/users/register"],
+form[action="/users/reset_password"],
+form[action="/users/confirm"],
+form[action="/users/settings"] {
+  @apply bg-white px-10 py-8 mb-6 shadow rounded-lg;
+
+  @apply px-6 mt-8 mx-auto w-full max-w-md;
+
+  label {
+    @apply block mb-2 text-sm font-medium text-cool-gray-700;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    @apply mb-4 appearance-none block w-full px-3 py-2 border border-cool-gray-300 rounded-md transition duration-150 ease-in-out text-sm;
+  }
+
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    @apply outline-none ring ring-indigo-300 border-indigo-300;
+  }
+
+  .checkbox-field {
+    @apply flex items-center mb-4;
+
+    input[type="checkbox"] {
+      @apply m-0 h-4 w-4 text-cool-gray-700 transition duration-150 ease-in-out;
+    }
+
+    label {
+      @apply m-0 ml-2;
+    }
+  }
+
+  button {
+    @apply mt-2 w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 transition duration-150 ease-in-out;
+  }
+
+  button:focus {
+    @apply outline-none border-indigo-700 ring ring-indigo-300;
+  }
+
+  button:active {
+    @apply bg-indigo-700;
+  }
+
+  button:hover {
+    @apply bg-indigo-500;
+  }
+}
+
+/* Top Secret */
+
+#top-secret {
+  @apply flex items-center justify-center py-10;
+
+  img {
+    @apply w-40 mr-8;
+  }
+
+  .mission {
+    @apply text-center;
+
+    h2 {
+      @apply text-3xl text-cool-gray-600 mb-2 font-bold;
+    }
+
+    h3 {
+      @apply text-3xl font-bold mb-2 text-indigo-600;
+    }
+
+    p {
+      @apply text-3xl text-cool-gray-600 mb-2;
+    }
+  }
+}
+
 /*
  * Range Input
  *
