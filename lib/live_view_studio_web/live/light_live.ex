@@ -2,7 +2,6 @@ defmodule LiveViewStudioWeb.LightLive do
   use LiveViewStudioWeb, :live_view
 
   def mount(_params, session, socket) do
-
     socket =
       assign(socket,
         brightness: 10,
@@ -16,7 +15,7 @@ defmodule LiveViewStudioWeb.LightLive do
     ~L"""
     <h1>Front Porch Light</h1>
     <h1>User: <%= @current_user.id %></h1>
-    <div id="light">
+    <div id="light" phx-window-keyup="update">
       <div class="meter">
         <span style=" background-color: <%= temp_color(@temp) %>;
                       width: <%= @brightness %>%">
@@ -64,6 +63,16 @@ defmodule LiveViewStudioWeb.LightLive do
     </div>
     """
   end
+
+  def handle_event("update", %{"key" => "ArrowUp"}, socket) do
+    {:noreply, update(socket, :brightness, &min(&1 + 10, 100))}
+  end
+
+  def handle_event("update", %{"key" => "ArrowDown"}, socket) do
+    {:noreply, update(socket, :brightness, &max(&1 - 10, 0))}
+  end
+
+  def handle_event("update", _, socket), do: {:noreply, socket}
 
   def handle_event("on", _, socket) do
     socket = assign(socket, :brightness, 100)
