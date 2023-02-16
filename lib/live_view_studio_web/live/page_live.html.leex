@@ -61,5 +61,13 @@
       <%= live_redirect "Top Secret",
           to: Routes.live_path(@socket, LiveViewStudioWeb.TopSecretLive) %>
     </li>
+    <li>
+      <%= live_redirect "Chart",
+          to: Routes.live_path(@socket, LiveViewStudioWeb.ChartLive) %>
+    </li>
+    <li>
+      <%= live_redirect "Map",
+          to: Routes.live_path(@socket, LiveViewStudioWeb.MapLive) %>
+    </li>
   </ul>
 </section>

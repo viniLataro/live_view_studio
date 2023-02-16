@@ -38,6 +38,7 @@ defmodule LiveViewStudioWeb.Router do
     live("/infinite-scroll", InfiniteScrollLive)
     live("/sandbox", SandboxLive)
     live("/chart", ChartLive)
+    live("/map", MapLive)
   end
 
   # Other scopes may use custom stacks.
@@ -64,36 +65,36 @@ defmodule LiveViewStudioWeb.Router do
   ## Authentication routes
 
   scope "/", LiveViewStudioWeb do
-    pipe_through [:browser, :redirect_if_user_is_authenticated]
+    pipe_through([:browser, :redirect_if_user_is_authenticated])
 
-    live "users/register", RegisterLive, :new, as: :user_registration
+    live("users/register", RegisterLive, :new, as: :user_registration)
 
-    post "/users/register", UserRegistrationController, :create
-    get "/users/log_in", UserSessionController, :new
-    post "/users/log_in", UserSessionController, :create
-    get "/users/reset_password", UserResetPasswordController, :new
-    post "/users/reset_password", UserResetPasswordController, :create
-    get "/users/reset_password/:token", UserResetPasswordController, :edit
-    put "/users/reset_password/:token", UserResetPasswordController, :update
+    post("/users/register", UserRegistrationController, :create)
+    get("/users/log_in", UserSessionController, :new)
+    post("/users/log_in", UserSessionController, :create)
+    get("/users/reset_password", UserResetPasswordController, :new)
+    post("/users/reset_password", UserResetPasswordController, :create)
+    get("/users/reset_password/:token", UserResetPasswordController, :edit)
+    put("/users/reset_password/:token", UserResetPasswordController, :update)
   end
 
   scope "/", LiveViewStudioWeb do
-    pipe_through [:browser, :require_authenticated_user]
+    pipe_through([:browser, :require_authenticated_user])
 
-    live "/topsecret", TopSecretLive
-    live "/light", LightLive
+    live("/topsecret", TopSecretLive)
+    live("/light", LightLive)
 
-    get "/users/settings", UserSettingsController, :edit
-    put "/users/settings", UserSettingsController, :update
-    get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
+    get("/users/settings", UserSettingsController, :edit)
+    put("/users/settings", UserSettingsController, :update)
+    get("/users/settings/confirm_email/:token", UserSettingsController, :confirm_email)
   end
 
   scope "/", LiveViewStudioWeb do
-    pipe_through [:browser]
+    pipe_through([:browser])
 
-    delete "/users/log_out", UserSessionController, :delete
-    get "/users/confirm", UserConfirmationController, :new
-    post "/users/confirm", UserConfirmationController, :create
-    get "/users/confirm/:token", UserConfirmationController, :confirm
+    delete("/users/log_out", UserSessionController, :delete)
+    get("/users/confirm", UserConfirmationController, :new)
+    post("/users/confirm", UserConfirmationController, :create)
+    get("/users/confirm/:token", UserConfirmationController, :confirm)
   end
 end
