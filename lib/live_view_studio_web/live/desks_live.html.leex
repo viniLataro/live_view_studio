@@ -14,11 +14,26 @@
     (max <%= trunc(@uploads.photo.max_file_size / 1_000_000) %> MB each)
   </div>
 
-  <%= live_file_input @uploads.photo %>
+  <div class="drop" phx-drop-target="<%= @uploads.photo.ref %>">
+    <div>
+      <img src="/images/upload.svg">
+      <div>
+        <label for="<%= @uploads.photo.ref %>">
+          <span>Upload a file</span>
+          <%= live_file_input @uploads.photo, class: "sr-only" %>
+        </label>
+        <span>or drag and drop</span>
+      </div>
+      <p>
+        <%= @uploads.photo.max_entries %> photos max,
+        up to <%= trunc(@uploads.photo.max_file_size / 1_000_000) %> MB each
+      </p>
+    </div>
+  </div>
 
-  <%= for {_ref, err} <- @uploads.photo.errors do %>
+  <%= for {ref, err} <- @uploads.photo.errors, ref == @uploads.photo.ref do %>
     <div class="error">
-      <%= humanize(err) %>
+      <%= error_to_string(err) %>
     </div>
   <% end %>
 
@@ -31,7 +46,7 @@
           <%= entry.progress %>%
         </div>
         <div class="bar">
-          <span style="width: <%= entry.progress %>"></span>
+          <span style="width: <%= entry.progress %>%"></span>
         </div>
       </div>
 
@@ -41,10 +56,9 @@
 
       <%= for err <- upload_errors(@uploads.photo, entry) do %>
         <div class="error">
-          <%= humanize(err) %>
+          <%= error_to_string(err) %>
         </div>
       <% end %>
-
     </div>
   <% end %>
 

@@ -18,13 +18,15 @@ import NProgress from "nprogress";
 import { LiveSocket } from "phoenix_live_view";
 
 import Hooks from "./hooks";
+import Uploaders from "./uploaders";
 
 let csrfToken = document
   .querySelector("meta[name='csrf-token']")
   .getAttribute("content");
-  
+
 let liveSocket = new LiveSocket("/live", Socket, {
   hooks: Hooks,
+  uploaders: Uploaders,
   params: { _csrf_token: csrfToken },
 });
 
