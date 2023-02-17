@@ -31,6 +31,7 @@ defmodule LiveViewStudioWeb.Router do
     live("/filter", FilterLive)
     live("/gitrepos", GitReposLive)
     live("/servers", ServersLive)
+    live("/servers/new", ServersLive, :new)
     live("/paginate", PaginateLive)
     live("/vehicles", VehiclesLive)
     live("/sort", SortLive)
